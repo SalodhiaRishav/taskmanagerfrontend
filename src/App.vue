@@ -22,7 +22,7 @@ export default {
   appHeader:Header
   },
   created(){
-    this.$store.dispatch('initUsers')
+  
   }
 }
 </script>

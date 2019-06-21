@@ -16,33 +16,49 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { constants } from 'crypto';
+import VueRouter from 'vue-router'
 export default {
     data(){
         return {
-            email:'test@gmail.com',
+            email:'salodhiarishav@gmail.com',
             password:'Lkjh@4321',
-            users:this.$store.getters.users
+           // users:null
         }
     },
-    computed:{
-        // users:()=>{
-        //     return this.$store.getters.users;
-        // }
-    },
+    // created(){
+    
+    //  //  this.$store.dispatch('initUsers')
+    //  // this.users=this.$store.getters.users
+    // },
+    // computed:{
+    //     // users:()=>{
+    //     //     return this.$store.getters.users;
+    //     // }
+    // },
     methods:{
         submit(){
-        let u=this.users.find(user=>{
-            return user.email===this.email && user.password===this.password
-        })
-        if(u)
-        {
-            console.log('login success')
-        }else
-        {
-            console.log('login failed')
+           axios.get('http://localhost:53757/api/user')
+          .then((data)=>{    
+            let users=data.data;
+            let u=users.find(user=>{
+                return user.email===this.email && user.password===this.password
+            })
+            if(u)
+            {
+             this.$store.dispatch('changeLoginStatus',true)
+             
+              sessionStorage.setItem('id', u.id);
+              this.$router.push('/table')
+            }else
+            {
+                alert('login failed')
+            }
+
+          })
         }
-        }
+           
     }
 
 }

@@ -1,23 +1,39 @@
-import users from './../../data/users';
+// import users from './../../data/users';
+import axios from 'axios';
 const state={
-    users:[]
+    users:[],
+    loginStatus:false
     }
     
     const mutations={
      setUsers:(state,users)=>{
          state.users=users;
+     },
+     changeLoginStatus:(state,value)=>{
+         state.loginStatus=value;
      }
     }
     
     const getters={
-        users:(state)=>{
+        users:(state)=>{           
             return state.users;
+        },
+        loginStatus:(state)=>{
+            return state.loginStatus;
         }
     }
     
     const actions={
     initUsers:(context)=>{
-            context.commit('setUsers',users);
+
+        axios.get('http://localhost:53757/api/user')
+        .then((data)=>{
+            context.commit('setUsers',data);
+           
+        })
+    },
+    changeLoginStatus:(context,value)=>{
+        context.commit('changeLoginStatus',value)
     }
     }
     

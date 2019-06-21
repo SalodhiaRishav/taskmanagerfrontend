@@ -9,10 +9,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-        <router-link to="/login" activeClass="active" class="nav-item" tag="li"><a class="nav-link">Login</a></router-link>
-        <router-link to="/task" activeClass="active" class="nav-item" tag="li"><a class="nav-link">New Task</a></router-link>
-        <router-link to="/chart" activeClass="active" class="nav-item" tag="li"><a class="nav-link">Table</a></router-link>
-        <router-link to="/table" activeClass="active" class="nav-item" tag="li"><a class="nav-link">Chart</a></router-link>   
+        <router-link to="/login" activeClass="active" class="nav-item" tag="li"><a class="nav-link" v-if="!$store.getters.loginStatus">Login</a></router-link>   
+        <router-link to="/task" activeClass="active" class="nav-item" tag="li"><a class="nav-link" v-if="$store.getters.loginStatus">New Task</a></router-link>
+        <router-link to="/table" activeClass="active" class="nav-item" tag="li"><a class="nav-link" v-if="$store.getters.loginStatus">Table</a></router-link>
+        <router-link to="/chart" activeClass="active" class="nav-item" tag="li"><a class="nav-link" v-if="$store.getters.loginStatus">Chart</a></router-link>   
+        <li class="nav-item">
+          <a class="nav-link" v-if="$store.getters.loginStatus" @click="logout">LogOut</a>
+        </li>
     </ul>
    
   </div>
@@ -22,6 +25,19 @@
 
 <script>
 export default {
+data(){
+  return {
+    isLogined:this.$store.getters.loginStatus,
+  }
+},
+methods:{
+  logout(){
+             this.$store.dispatch('changeLoginStatus',false)
+             sessionStorage.removeItem('id')
+             this.$router.push('/login');
+   
+  }
+}
 
 }
 </script>
