@@ -9,6 +9,12 @@ import categories from './../data/categories'
       categories:categories.categories,
     chartData: null,        
     options: {
+         title: {
+             fontSize:20,
+             position:'bottom',
+            display: true,
+            text: 'Expected Time vs Spent Time'
+        },
       responsive: true,
       maintainAspectRatio: false
     }

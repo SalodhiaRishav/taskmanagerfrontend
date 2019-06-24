@@ -13,7 +13,20 @@ export default {
       
     chartdata: null,
     options: {
-      responsive: true,
+        title: {
+            display: true,
+            text: 'Total Tasks Per Domain',
+             fontSize:20,
+             position:'bottom',
+        },
+         scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    },
+    //   responsive: true,
       maintainAspectRatio: false
     }
   }),

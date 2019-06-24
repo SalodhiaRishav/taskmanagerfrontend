@@ -1,9 +1,15 @@
 <template>
     <div>
-        <app-bargraph></app-bargraph>
+        <div class="row">
+            <div class="col" style="text-align:center">
+            <app-bargraph></app-bargraph>
+            </div>
+            <div class="col">
+            <app-Linegraph></app-Linegraph>
+            </div>
+        </div>
 
 
-        <app-Linegraph></app-Linegraph>
 
 
     </div>

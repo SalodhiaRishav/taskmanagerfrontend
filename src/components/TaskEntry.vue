@@ -8,7 +8,7 @@
           </div>
         </div> -->
          <div class="row">
-          <div class="col-xs-12 mb-3">
+          <div class="col-6 mb-3">
             <label for="category">Task Domain</label>
       <select v-model="task.taskdomain" id="category">
       <option v-for="category in categories" :value="category" >{{category}}</option>
@@ -16,31 +16,33 @@
           </div>
          </div>
            <div class="row">
-            <div class="col-xs-12 mb-3">
+            <div class="col-6 mb-3">
             <label for="userStory">User Story</label>
             <input type="text" class="form-control" id="userStory" required v-model="task.userstory">          
           </div>        
         </div>
          <div class="row">
-          <div class="col-xs-12 mb-3">
+          <div class="col-6 mb-3">
             <label for="timeSpent">Time Spent</label>
             <input type="number" class="form-control" id="timeSpent" required v-model="task.timespent">          
           </div>
         </div>
          <div class="row">
-          <div class="col-xs-12 mb-3">
+          <div class="col-6 mb-3">
             <label for="expectedTime">Expected Time</label>
             <input type="number" class="form-control" id="expectedTime" required v-model="task.expectedtime">          
           </div>
         </div>
       
         <div class="row">
-          <div class="col-xs-12 mb-3">
+          <div class="col-6 mb-3">
             <label for="taskDate">Task Date</label>
             <input type="date" class="form-control" id="taskDate" required value="2013-01-08" v-model="task.taskdate">          
           </div>
         </div>
-         <button class="btn btn-lg btn-primary btn-block" type="submit" @click.prevent="submit">Add New Task</button>
+        <div class="row">
+         <button class="col-6 btn btn-lg btn-primary btn-block" type="submit" @click.prevent="submit">Add New Task</button>
+      </div>
      </form>
    </div>
 </template>
