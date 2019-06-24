@@ -77,7 +77,7 @@ created()
            this.task.expectedtime=0,
             this.task.timespent=0,          
             this.task.userstory=""
-            console.log('clear')
+           
     },
      submit()
      {
@@ -91,12 +91,12 @@ created()
        {
           this.task.userid=uid;
           axios.post('http://localhost:53757/api/task',this.task)
-          .then(data=>{
-          
+          .then(()=>{
+
              this.clearTask();
           })
           .catch(err=>{
-            
+            alert(err);
           })
       }
       

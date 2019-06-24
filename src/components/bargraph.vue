@@ -29,7 +29,7 @@ export default {
         let taskArray=data.data.tasks;
         let categoryCount=[];
         this.categories.forEach(function(category) {
-        const count = taskArray.filter(task => task.taskDomain == category ).length; 
+        const count = taskArray.filter(task => task.taskDomain === category ).length; 
             categoryCount.push(count);   
           
         });
