@@ -1,12 +1,15 @@
 <template>
     <div>
-        reportchart works
+        <app-bargraph></app-bargraph>
     </div>
 </template>
 
 <script>
+ import bargraph from './bargraph.vue';
 export default {
-
+components: {
+  appBargraph:bargraph
+  },
 }
 </script>
 

@@ -1,12 +1,20 @@
 <template>
    <div>
      <form>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-xs-12 mb-3">
             <label for="firstName">Task Domain</label>
             <input type="text" class="form-control" id="taskDomain" required v-model="task.taskdomain">          
           </div>
-        </div>
+        </div> -->
+         <div class="row">
+          <div class="col-xs-12 mb-3">
+            <label for="category">Task Domain</label>
+      <select v-model="task.taskdomain" id="category">
+      <option v-for="category in categories" :value="category" >{{category}}</option>
+    </select>
+          </div>
+         </div>
            <div class="row">
             <div class="col-xs-12 mb-3">
             <label for="userStory">User Story</label>
@@ -25,12 +33,7 @@
             <input type="number" class="form-control" id="expectedTime" required v-model="task.expectedtime">          
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-xs-12 mb-3">
-            <label for="userId">UserId</label>
-            <input type="text" class="form-control" id="userId" required v-model="task.userid">          
-          </div>
-        </div> -->
+      
         <div class="row">
           <div class="col-xs-12 mb-3">
             <label for="taskDate">Task Date</label>
@@ -44,12 +47,15 @@
 
 <script>
 import axios from 'axios';
+import categories from './../data/categories';
+
 export default {
 data (){
     return {
+        categories:null,
         task:{
             taskdate:"2013-01-08",
-            taskdomain:"dot net",
+            taskdomain:"Testing",
             expectedtime:3,
             timespent:2,
             userid:1,
@@ -57,6 +63,11 @@ data (){
         }
               
     }
+},
+created()
+{
+  this.categories=categories.categories;
+  
 },
  methods:{
     clearTask()
@@ -70,6 +81,7 @@ data (){
     },
      submit()
      {
+      //  console.log(this.task);
        let uid=sessionStorage.getItem('id');
        if(uid===null)
        {
@@ -86,7 +98,7 @@ data (){
           .catch(err=>{
             
           })
-       }
+      }
       
      }
  }

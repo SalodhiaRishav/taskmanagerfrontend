@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="container">
     <app-header></app-header>
+    
     <div class="row">
       <div class="col-xs-12">
         <router-view></router-view>
@@ -13,13 +14,14 @@
 <script>
 
 import Header from './components/Header.vue';
-
+import bargraph from './components/bargraph.vue';
 
 
 export default {
   name: 'app',
   components: {
-  appHeader:Header
+  appHeader:Header,
+  appBargraph:bargraph
   },
   created(){
   

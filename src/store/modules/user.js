@@ -1,4 +1,3 @@
-// import users from './../../data/users';
 import axios from 'axios';
 const state={
     users:[],
