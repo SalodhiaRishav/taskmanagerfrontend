@@ -4,7 +4,7 @@ import axios from 'axios';
 import categories from './../data/categories'
 
   export default {
-  extends: Line,Bar,
+  extends: Bar,Line,
   data: () => ({
       categories:categories.categories,
     chartData: null,        
@@ -37,17 +37,20 @@ import categories from './../data/categories'
            
            })
     let dataChart={
-        type: 'bar', // was "line"
+       
         labels: this.categories,
         datasets:[
         { // one line graph
+           
           label: 'Expected Time',
+           type:'line',
           data: expectedTimeArray,
           borderColor:'#ff0000',
           borderWidth: 3
         },
         { // one line graph
           label: 'Time Spent',
+          type:'bar',
           data: timeSpentArray,
           borderColor:'#36495d',
           borderWidth: 3
