@@ -1,12 +1,6 @@
 <template>
    <div>
      <form>
-        <!-- <div class="row">
-          <div class="col-xs-12 mb-3">
-            <label for="firstName">Task Domain</label>
-            <input type="text" class="form-control" id="taskDomain" required v-model="task.taskdomain">          
-          </div>
-        </div> -->
          <div class="row">
           <div class="col-6 mb-3">
             <label for="category">Task Domain</label>
@@ -68,8 +62,7 @@ data (){
 },
 created()
 {
-  this.categories=categories.categories;
-  
+  this.categories=categories.categories;  
 },
  methods:{
     clearTask()

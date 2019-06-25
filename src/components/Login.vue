@@ -22,26 +22,14 @@
 
 <script>
 import axios from 'axios';
-import { constants } from 'crypto';
 import VueRouter from 'vue-router'
 export default {
     data(){
         return {
             email:'salodhiarishav@gmail.com',
             password:'Lkjh@4321',
-           // users:null
         }
     },
-    // created(){
-    
-    //  //  this.$store.dispatch('initUsers')
-    //  // this.users=this.$store.getters.users
-    // },
-    // computed:{
-    //     // users:()=>{
-    //     //     return this.$store.getters.users;
-    //     // }
-    // },
     methods:{
         submit(){
            axios.get('http://localhost:53757/api/user')
@@ -52,8 +40,7 @@ export default {
             })
             if(u)
             {
-             this.$store.dispatch('changeLoginStatus',true)
-             
+             this.$store.dispatch('changeLoginStatus',true)           
               sessionStorage.setItem('id', u.id);
               this.$router.push('/table')
             }else
@@ -70,33 +57,5 @@ export default {
 </script>
 
 <style scoped>
- .form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-.form-signin .checkbox {
-  font-weight: 400;
-}
-.form-signin .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+ 
 </style>
