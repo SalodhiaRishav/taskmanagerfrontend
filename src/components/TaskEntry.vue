@@ -5,7 +5,7 @@
         <div class="col-6 mb-3">
           <label for="category">Task Domain</label>
           <select v-model="task.taskdomain" id="category">
-            <option v-for="category in categories" :value="category">{{category}}</option>
+            <option v-for="(category,index) in categories" :key="index" :value="category">{{category}}</option>
           </select>
         </div>
       </div>
@@ -57,8 +57,7 @@
 </template>
 
 <script>
-import axios from "axios";
-import categories from "./../data/categories";
+import {categories} from "./../data/categories";
 
 export default {
   data() {
@@ -95,8 +94,9 @@ export default {
         this.$store
           .dispatch("postNewTask", this.task)
           .then((data) => {
-            console.log(data);
+            if(data){
             this.clearTask();
+            }
           })
           .catch(err => {
             alert(err);

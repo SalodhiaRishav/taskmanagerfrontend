@@ -1,14 +1,13 @@
 <script>
 import { Line, Bar } from "vue-chartjs";
-import axios from "axios";
-import categories from "./../data/categories";
+import {categories} from "./../data/categories";
 
 export default {
   extends: Bar,
   Line,
   data: () => ({
       userTasks:null,
-    categories: categories.categories,
+    categories: categories,
     chartData: null,
     options: {
       title: {

@@ -33,6 +33,7 @@ const actions = {
                 resolve(response)
             })
             .catch((error)=>{
+                context.commit('changeNewTaskAddedStatus',false)
                 reject(error)
             })
             
@@ -49,7 +50,7 @@ const actions = {
                         resolve({ dataFetched: true });
                     }))
                     .catch((error)=>{
-                        reject(error);
+                        reject({dataFeteched:false,error:error});
                     })
             }
         );

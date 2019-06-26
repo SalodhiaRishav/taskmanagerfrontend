@@ -1,13 +1,12 @@
 <script>
 import { Bar } from "vue-chartjs";
-import categories from "./../data/categories";
-import axios from "axios";
+import {categories} from "./../data/categories";
 
 export default {
   extends: Bar,
   data: () => ({
     userTasks: null,
-    categories: [],
+    categories: categories,
     chartdata: null,
     options: {
       title: {
@@ -60,7 +59,7 @@ export default {
     }
   },
   mounted() {
-    this.categories = categories.categories;
+    this.categories = categories;
     this.drawBarGraph();
   }
 };

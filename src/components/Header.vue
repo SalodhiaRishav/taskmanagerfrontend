@@ -17,23 +17,24 @@
         <ul class="navbar-nav mr-auto">
           <div v-if="!isLogined">
             <router-link
-              v-for="currentLink in beforeLoginHeaderLinks"
+              v-for="(currentLink, index) in beforeLoginHeaderLinks"
               :to="currentLink.LinkRoute"
               activeClass="active"
               class="nav-item"
-              tag="li"
+              tag="li" :key="index"
             >
               <a class="nav-link">{{currentLink.DisplayName}}</a>
             </router-link>
           </div>
           <div v-if="isLogined">
             <router-link
-              v-for="currentLink in afterLoginHeaderLinks"
+              v-for="(currentLink,index) in afterLoginHeaderLinks"
               :to="currentLink.LinkRoute"
               activeClass="active"
               class="nav-item"
               tag="li"
               style="display:inline"
+              :key="index"
             >
               <a class="nav-link">{{currentLink.DisplayName}}</a>
             </router-link>
