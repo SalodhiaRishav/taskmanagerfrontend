@@ -1,43 +1,23 @@
 <template>
   <div id="app" class="container">
     <app-header></app-header>
- 
-   
-        <router-view></router-view>
-      
-    
-   
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-
-import Header from './components/Header.vue';
-import bargraph from './components/bargraph.vue';
-
+import Header from "./components/Header.vue";
+import bargraph from "./components/bargraph.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-  appHeader:Header,
-  appBargraph:bargraph
-  },
-  created(){
-  
+    appHeader: Header,
+    appBargraph: bargraph
   }
-}
+};
 </script>
 
 <style>
-body{
-  padding: 10px;
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
- 
-}
+ @import './styles/AppVueStyle.css';
 </style>

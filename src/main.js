@@ -11,8 +11,6 @@ const router=new VueRouter({
   routes,
 })
 
-// Vue.config.productionTip = false
-
 new Vue({
   router,
   store,
