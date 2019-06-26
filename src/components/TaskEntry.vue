@@ -5,7 +5,7 @@
         <div class="col-6 mb-3">
           <label for="category">Task Domain</label>
           <select v-model="task.taskdomain" id="category">
-            <option v-for="(category,index) in categories" :key="index" :value="category">{{category}}</option>
+            <option v-for="(category,index) in categories" :key=index  :value="category">{{category}}</option>
           </select>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default {
     };
   },
   created() {
-    this.categories = categories.categories;
+    this.categories = categories;
   },
   methods: {
     clearTask() {
