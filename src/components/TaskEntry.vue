@@ -94,7 +94,8 @@ export default {
         this.task.userid = userId;
         this.$store
           .dispatch("postNewTask", this.task)
-          .then(() => {
+          .then((data) => {
+            console.log(data);
             this.clearTask();
           })
           .catch(err => {
